@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AccountItem from '../components/AccountItem'
 import '../css/User.css'
 import { useSelector } from 'react-redux'
@@ -9,7 +9,8 @@ import { actionUpdate } from '../action/UserAction';
 function User() {
 	const dispatch = useDispatch()
 
-	const { lastName, firstName } = useSelector((state) => state.user)
+	const {id, lastName, firstName } = useSelector((state) => state.user)
+	const navigate = useNavigate()
 	const [edit, setEdit] = useState(false)
 
 	function handleSubmit(e) {
@@ -24,6 +25,13 @@ function User() {
 			setEdit(false)
 		})
 	}
+
+	useEffect(() => {
+		if(id == ""){
+			navigate("/sign-in")
+		}
+	}, [])
+	
 
 	return (
 		<main class="main bg-dark">
