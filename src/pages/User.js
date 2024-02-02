@@ -9,7 +9,7 @@ import { actionUpdate } from '../action/UserAction';
 function User() {
 	const dispatch = useDispatch()
 
-	const {id, lastName, firstName } = useSelector((state) => state.user)
+	const { id, lastName, firstName } = useSelector((state) => state.user)
 	const navigate = useNavigate()
 	const [edit, setEdit] = useState(false)
 
@@ -18,20 +18,20 @@ function User() {
 		const firstName = document.getElementById("firstName").value
 		const lastName = document.getElementById("lastName").value
 		const data = {
-			firstName:firstName,
-			lastName:lastName
+			firstName: firstName,
+			lastName: lastName
 		}
-		dispatch(actionUpdate(data)).then(()=>{
+		dispatch(actionUpdate(data)).then(() => {
 			setEdit(false)
 		})
 	}
 
 	useEffect(() => {
-		if(id == ""){
+		if (id == "") {
 			navigate("/sign-in")
 		}
 	}, [])
-	
+
 
 	return (
 		<main class="main bg-dark">

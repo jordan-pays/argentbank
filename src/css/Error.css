@@ -1,0 +1,29 @@
+.container_error{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content:space-evenly;
+    flex-direction: column;
+}
+
+.huge_text_error {
+    font-weight: 700;
+    font-size: 96px;
+    text-align: center;
+    color: #FF6060;
+}
+
+.text_error {
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color:#FF6060;
+    width: 260px;
+}
+
+.link_error {
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF6060;
+    text-decoration: underline #FF6060;  
+}

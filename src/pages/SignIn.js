@@ -9,6 +9,8 @@ function SignIn() {
 	const dispatch = useDispatch()
 	const navigate = useNavigate();
 
+	const [handlerError, setHandlerError] = useState("")
+
 	function handleSubmit(e) {
 		e.preventDefault()
 		const email = document.getElementById("username").value
@@ -19,6 +21,8 @@ function SignIn() {
 		}
 		dispatch(actionLogIn(data)).then((res) => {
 			navigate("/user");
+		}).catch((err) => {
+			setHandlerError(err.response.data.message)
 		})
 	}
 
@@ -27,6 +31,7 @@ function SignIn() {
 			<section className="sign-in-content">
 				<i className="fa fa-user-circle sign-in-icon"></i>
 				<h1>Sign In</h1>
+				<p className='text_error'>{handlerError}</p>
 				<form>
 					<div className="input-wrapper">
 						<label htmlFor="username">Username</label>
