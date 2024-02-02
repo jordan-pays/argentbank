@@ -22,7 +22,7 @@ function SignIn() {
 		dispatch(actionLogIn(data)).then((res) => {
 			navigate("/user");
 		}).catch((err) => {
-			setHandlerError(err.response.data.message)
+			setHandlerError(err.response?.data.message ? err.response.data.message : "Network Error" )
 		})
 	}
 
